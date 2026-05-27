@@ -84,6 +84,7 @@ export const IMAGE_PATHS = {
   nelin3: 'images/nelin3.png',
   nelin4: 'images/nelin4.png',
   nelin5: 'images/nelin5.png',
+  tau_stable_system: 'images/tau_stable_system.png',
 };
 // src/data/tauQuestions.js
 
@@ -1634,7 +1635,7 @@ export const tauQuestions = [
   {
     id: 'tau-133',
     text: 'Какая система из представленных на рисунке является неустойчивой?',
-    imageKey: 'tau_unstable_system',
+    imageKey: 'tau_stable_system',
     options: ['1', '3', '2'],
     correct: [0],
     type: 'single'
