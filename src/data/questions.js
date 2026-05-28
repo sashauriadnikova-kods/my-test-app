@@ -94,6 +94,7 @@ export const IMAGE_PATHS = {
   tau_bode_123: 'images/tau_bode_123.png',
   ogranichenie: 'images/ogranichenie.png',
   dead_zone: 'images/dead_zone.png',
+  tau_step_osc3: 'images/tau_step_osc3.png',
 };
 // src/data/tauQuestions.js
 
@@ -282,7 +283,7 @@ export const tauQuestions = [
       imageKey: 'tau_poles_bordere',
     options: ['1', '2', '3', '4'],
     correct: [0],
-    type: 'single'
+    type: 'multiple'
   },
   {
     id: 'tau-17',
@@ -290,7 +291,7 @@ export const tauQuestions = [
     imageKey: 'tau_poles_border',
     options: ['1', '2', '3', '4'],
     correct: [1],
-    type: 'single'
+    type: 'multiple'
   },
   {
     id: 'tau-18',
@@ -298,7 +299,7 @@ export const tauQuestions = [
       imageKey: 'tau_poles_border',
     options: ['1', '2', '3', '4'],
     correct: [2, 3],
-    type: 'single'
+    type: 'multiple'
   },
   {
     id: 'tau-19',
@@ -2097,8 +2098,8 @@ export const tauQuestions = [
     id: 'tau-169',
     text: 'Какое уравнение соответствует нелинейности:люфт',
     options: [
-      'k(x-b), при x≥b; 0, при -b<x<b; k(x+b), при x≤-b',
-      'k(x-c), при x>0; k(x+c), при x<0; const, при х=0',
+      'k(x-b), при x≥0; 0, при -b<x<b; k(x+b), при x≤-b',
+      "k(x-c), при x'>0; k(x+c), при x'<0; const, при х'=0",
       "c, при x>b, x'>0, x>-b, x'<0; -c, при x<b, x'>0, x<-b, x'<0;",
       'c, при x≥0; 0, при -b<x<b; -c, при x≤-b',
       'c, при x>b; (c/b)x, при -b<x<b; -c, при x≤-b'
@@ -2110,8 +2111,8 @@ export const tauQuestions = [
     id: 'tau-169_1',
     text: 'Какое уравнение соответствует нелинейности: мёртвая зона',
     options: [
-      'k(x-b), при x≥b; 0, при -b<x<b; k(x+b), при x≤-b',
-      'k(x-c), при x>0; k(x+c), при x<0; const, при х=0',
+      'k(x-b), при x≥0; 0, при -b<x<b; k(x+b), при x≤-b',
+      "k(x-c), при x'>0; k(x+c), при x'<0; const, при х'=0",
       "c, при x>b, x'>0, x>-b, x'<0; -c, при x<b, x'>0, x<-b, x'<0;",
       'c, при x≥0; 0, при -b<x<b; -c, при x≤-b',
       'c, при x>b; (c/b)x, при -b<x<b; -c, при x≤-b'
@@ -2123,8 +2124,8 @@ export const tauQuestions = [
     id: 'tau-169_2',
     text: 'Какое уравнение соответствует нелинейности: реле с гистерезисом',
     options: [
-      'k(x-b), при x≥b; 0, при -b<x<b; k(x+b), при x≤-b',
-      'k(x-c), при x>0; k(x+c), при x<0; const, при х=0',
+      'k(x-b), при x≥0; 0, при -b<x<b; k(x+b), при x≤-b',
+      "k(x-c), при x'>0; k(x+c), при x'<0; const, при х'=0",
       "c, при x>b, x'>0, x>-b, x'<0; -c, при x<b, x'>0, x<-b, x'<0;",
       'c, при x≥0; 0, при -b<x<b; -c, при x≤-b',
       'c, при x>b; (c/b)x, при -b<x<b; -c, при x≤-b'
@@ -2136,9 +2137,9 @@ export const tauQuestions = [
     id: 'tau-169_3',
        text: 'Какое уравнение соответствует нелинейности: реле с зоной нечувствительности',
     options: [
-      'k(x-b), при x≥b; 0, при -b<x<b; k(x+b), при x≤-b',
-      'k(x-c), при x>0; k(x+c), при x<0; const, при х=0',
-      "c, при x>b, x'>0, x>-b, x'<0; -c, при x<b, x'>0, x<-b, x'<0; ",
+      'k(x-b), при x≥0; 0, при -b<x<b; k(x+b), при x≤-b',
+      "k(x-c), при x'>0; k(x+c), при x'<0; const, при х'=0",
+      "c, при x>b, x'>0, x>-b, x'<0; -c, при x<b, x'>0, x<-b, x'<0;",
       'c, при x≥0; 0, при -b<x<b; -c, при x≤-b',
       'c, при x>b; (c/b)x, при -b<x<b; -c, при x≤-b'
     ],
@@ -2149,8 +2150,8 @@ export const tauQuestions = [
     id: 'tau-169_4',
     text: 'Какое уравнение соответствует нелинейности: — ограничение (насыщение)',
     options: [
-      'k(x-b), при x≥b; 0, при -b<x<b; k(x+b), при x≤-b',
-      'k(x-c), при x>0; k(x+c), при x<0; const, при х=0',
+      'k(x-b), при x≥0; 0, при -b<x<b; k(x+b), при x≤-b',
+      "k(x-c), при x'>0; k(x+c), при x'<0; const, при х'=0",
       "c, при x>b, x'>0, x>-b, x'<0; -c, при x<b, x'>0, x<-b, x'<0;",
       'c, при x≥0; 0, при -b<x<b; -c, при x≤-b',
       'c, при x>b; (c/b)x, при -b<x<b; -c, при x≤-b'
