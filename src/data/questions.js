@@ -35,6 +35,7 @@ drive_speed_1, drive_speed_2, drive_speed_3, drive_speed_4, drive_speed_5
 export const IMAGE_PATHS = {
   tau_bode_1: 'images/tau_bode_1.png',
   tau_bode_2: 'images/tau_bode_2.png',
+  tau_bode: 'images/tau_bode.png',
   tau_step_aper: 'images/tau_step_aper.png',
   tau_step_osc1: 'images/tau_step_osc1.png',
   tau_step_osc2: 'images/tau_step_osc2.png',
