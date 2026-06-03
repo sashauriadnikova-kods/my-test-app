@@ -2,9 +2,10 @@ import React, { useCallback, useState, useEffect } from 'react';
 import ProgressBar from './ProgressBar';
 import QuestionCard from './QuestionCard';
 import MatchingQuestion from './MatchingQuestion';
+import KittyObserver from './KittyObserver';
 
 export default function TestScreen({ questions, matchingQuestions, onFinish, questionIndex, setQuestionIndex, userAnswers, setUserAnswers, userMatches, setUserMatches }) {
-  const [timeLeft, setTimeLeft] = useState(40 * 60); // 40 минут
+  const [timeLeft, setTimeLeft] = useState(40 * 60);
   const isMatching = questionIndex >= questions.length;
   const matchingIndex = questionIndex - questions.length;
   const currentQuestion = !isMatching ? questions[questionIndex] : null;
@@ -37,10 +38,22 @@ export default function TestScreen({ questions, matchingQuestions, onFinish, que
   }, [setUserMatches]);
 
   const selectedAnswers = currentQuestion ? (userAnswers[questionIndex] || []) : [];
-  const hasAnswer = isMatching ? Object.keys(userMatches[currentMatching?.id] || {}).length === currentMatching?.leftItems.length : selectedAnswers.length > 0;
+  const hasAnswer = isMatching 
+    ? Object.keys(userMatches[currentMatching?.id] || {}).length === currentMatching?.leftItems.length 
+    : selectedAnswers.length > 0;
+
+  // Определяем настроение котика
+  let kittyMood = 'neutral';
+  if (questionIndex === 0 && selectedAnswers.length === 0) kittyMood = 'thinking';
+  else if (selectedAnswers.length >= 2) kittyMood = 'happy';
+  else if (questionIndex > totalItems * 0.8) kittyMood = 'excited';
+  else if (timeLeft < 300) kittyMood = 'worried';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-6 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-6 px-4 relative">
+      {/* Котик наблюдает */}
+      <KittyObserver mood={kittyMood} size="small" />
+      
       <div className="max-w-3xl mx-auto">
         <ProgressBar current={questionIndex} total={totalItems} timeLeft={timeLeft} isWarning={timeLeft < 300} />
         <div className="mt-6 mb-4 flex justify-between items-center">
