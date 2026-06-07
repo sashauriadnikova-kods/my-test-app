@@ -1,17 +1,8 @@
-export const shuffleArray = (arr) => {
-  const shuffled = [...arr];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-};
+// src/utils/helpers.js
 
-export const formatTime = (seconds) => {
-  const m = Math.floor(seconds / 60);
-  const s = seconds % 60;
-  return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-};
+/**
+ * Перемешивает массив случайным образом (алгоритм Фишера-Йетса)
+ */
 export const shuffleArray = (arr) => {
     const shuffled = [...arr];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -21,15 +12,21 @@ export const shuffleArray = (arr) => {
     return shuffled;
 };
 
+/**
+ * Форматирует секунды в строку вида MM:SS
+ */
 export const formatTime = (seconds) => {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
     return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 };
 
-// Новая функция для перемешивания вариантов ответов
+/**
+ * Перемешивает варианты ответов в вопросе и корректирует индексы правильных ответов.
+ * Вопросы на соответствие (matching) не перемешиваются.
+ */
 export const shuffleQuestionOptions = (question) => {
-    // Для вопросов на соответствие не перемешиваем
+    // Для вопросов на соответствие или без options — возвращаем как есть
     if (question.type === 'matching' || !question.options) {
         return question;
     }
